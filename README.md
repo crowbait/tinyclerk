@@ -40,7 +40,3 @@ Start the app in the `dev` environment: `npm start`
 [github-actions-url]: https://github.com/crowbait/tinyclerk/actions
 [github-tag-image]: https://img.shields.io/github/v/release/crowbait/tinyclerk?display_name=tag
 [github-tag-url]: https://github.com/crowbait/tinyclerk/releases/latest
-
-
-
-

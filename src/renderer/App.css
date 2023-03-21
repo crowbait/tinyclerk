@@ -1,62 +1,101 @@
-/*
- * @NOTE: Prepend a `~` to css file paths that are in your node_modules
- *        See https://github.com/webpack-contrib/sass-loader#imports
- */
-body {
-  position: relative;
-  color: white;
-  height: 100vh;
-  background: linear-gradient(
-    200.96deg,
-    #fedc2a -29.09%,
-    #dd5789 51.77%,
-    #7a2c9e 129.35%
-  );
-  font-family: sans-serif;
-  overflow-y: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
 }
-
-button {
-  background-color: white;
-  padding: 10px 20px;
-  border-radius: 10px;
-  border: none;
-  appearance: none;
-  font-size: 1.3rem;
-  box-shadow: 0px 8px 28px -6px rgba(24, 39, 75, 0.12),
-    0px 18px 88px -4px rgba(24, 39, 75, 0.14);
-  transition: all ease-in 0.1s;
-  cursor: pointer;
-  opacity: 0.9;
+::-webkit-scrollbar-track {
+  background: #161616;
 }
-
-button:hover {
-  transform: scale(1.05);
-  opacity: 1;
+::-webkit-scrollbar-thumb {
+  background: #a0a0a0;
+  border-radius: 4px;
 }
-
-li {
-  list-style: none;
+::-webkit-scrollbar-thumb:hover {
+  background: #616161;
 }
 
 a {
-  text-decoration: none;
-  height: fit-content;
-  width: fit-content;
-  margin: 10px;
+  cursor: pointer;
+  color: #a0a0a0;
 }
-
 a:hover {
-  opacity: 1;
+  color: #7e0a0a;
   text-decoration: none;
 }
+a img {
+  transform: scale(1);
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
+}
+a img:hover {
+  transform: scale(1.05);
+  border-radius: 8px;
+}
+code {
+  font-size: 0.75rem;
+}
+.compactTable {
+  border-radius: 4px;
+}
+.compactTable th {
+  font-weight: 600 !important;
+  padding-top: 12px !important;
+  padding-bottom: 2px !important;
+  padding-left: 12px !important;
+  padding-right: 0 !important;
+  background-color: #181818;
+}
+.compactTable td {
+  padding-top: 4px !important;
+  padding-bottom: 2px !important;
+  padding-left: 0;
+  padding-right: 0;
+  border: none;
+}
+.compactTable td::after {
+  content: '';
+  display: block;
+  border-bottom: 1px solid #272727;
+}
 
-.Hello {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 20px 0;
+.modal-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(calc(-50% + 0.5px), calc(-50% + 0.5px));
+  background-color: #181818;
+  padding: 16px;
+  border-radius: 4px;
+  min-width: 600px;
+  min-height: 300px;
+  width: 80vw;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+.modal-container-tags {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(calc(-50% + 0.5px), calc(-50% + 0.5px));
+  background-color: #181818;
+  padding: 16px;
+  border-radius: 4px;
+  min-width: 600px;
+  min-height: 300px;
+  max-height: 80vh;
+  width: 80vw;
+  height: 80vw;
+}
+
+
+.MuiBox-root {
+  max-width: 100%;
+}
+.MuiDrawer-paper {
+  background-color: #181818 !important;
+  box-shadow: 2px 2px rgb(0 0 0 / 10%) !important;
+}
+.MuiButton-root {
+  width: 100%;
+  max-width: 100%;
+  top: 2px;
 }

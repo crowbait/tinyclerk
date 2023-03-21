@@ -9,8 +9,9 @@
  * `./src/main.js` using webpack. This gives us some performance wins.
  */
 import path from 'path';
-import { app, BrowserWindow, shell, ipcMain } from 'electron';
+import { app, BrowserWindow, shell, ipcMain, dialog } from 'electron';
 import { autoUpdater } from 'electron-updater';
+import Store from 'electron-store';
 import log from 'electron-log';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
@@ -24,12 +25,15 @@ class AppUpdater {
 }
 
 let mainWindow: BrowserWindow | null = null;
+let splash: BrowserWindow | null = null;
 
 ipcMain.on('ipc-example', async (event, arg) => {
   const msgTemplate = (pingPong: string) => `IPC test: ${pingPong}`;
   console.log(msgTemplate(arg));
   event.reply('ipc-example', msgTemplate('pong'));
 });
+
+
 
 if (process.env.NODE_ENV === 'production') {
   const sourceMapSupport = require('source-map-support');
@@ -47,7 +51,6 @@ const installExtensions = async () => {
   const installer = require('electron-devtools-installer');
   const forceDownload = !!process.env.UPGRADE_EXTENSIONS;
   const extensions = ['REACT_DEVELOPER_TOOLS'];
-
   return installer
     .default(
       extensions.map((name) => installer[name]),
@@ -55,6 +58,17 @@ const installExtensions = async () => {
     )
     .catch(console.log);
 };
+
+const createSplash = async () => {
+  splash = new BrowserWindow({
+    width: 300,
+    height: 300,
+    transparent: true,
+    frame: false,
+    alwaysOnTop: true
+  });
+  splash.loadURL(`file://${__dirname}/splash.html`);
+}
 
 const createWindow = async () => {
   if (isDebug) {
@@ -71,9 +85,10 @@ const createWindow = async () => {
 
   mainWindow = new BrowserWindow({
     show: false,
-    width: 1024,
-    height: 728,
+    width: 1280,
+    height: 720,
     icon: getAssetPath('icon.png'),
+    title: "tinyClerk",
     webPreferences: {
       preload: app.isPackaged
         ? path.join(__dirname, 'preload.js')
@@ -82,6 +97,7 @@ const createWindow = async () => {
   });
 
   mainWindow.loadURL(resolveHtmlPath('index.html'));
+  Store.initRenderer();
 
   mainWindow.on('ready-to-show', () => {
     if (!mainWindow) {
@@ -89,8 +105,10 @@ const createWindow = async () => {
     }
     if (process.env.START_MINIMIZED) {
       mainWindow.minimize();
+      splash?.destroy();
     } else {
-      mainWindow.show();
+      mainWindow.maximize();
+      splash?.destroy();
     }
   });
 
@@ -106,6 +124,8 @@ const createWindow = async () => {
     shell.openExternal(edata.url);
     return { action: 'deny' };
   });
+
+  mainWindow.setMenu(null);
 
   // Remove this if your app does not use auto updates
   // eslint-disable-next-line
@@ -127,6 +147,7 @@ app.on('window-all-closed', () => {
 app
   .whenReady()
   .then(() => {
+    createSplash();
     createWindow();
     app.on('activate', () => {
       // On macOS it's common to re-create a window in the app when the
@@ -135,3 +156,7 @@ app
     });
   })
   .catch(console.log);
+
+process.on('uncaughtException', (error) => {
+  dialog.showErrorBox("EXCEPTION", error.message);
+});
