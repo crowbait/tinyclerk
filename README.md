@@ -23,6 +23,7 @@ Or
 git clone https://github.com/crowbait/crowbait-helper.git tinyclerk
 cd tinyclerk
 npm install
+npm run prepare
 npx patch-package
 ```
 
