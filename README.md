@@ -9,7 +9,10 @@
 
 </div>
 
-### Install
+# tinyClerk
+### A beautiful and simple cross-platform app for your personal accounting and budgeting
+
+## Install
 
 Either
 - Get the latest [release](https://github.com/crowbait/crowbait-helper/releases)
@@ -22,13 +25,13 @@ npm install
 npx patch-package
 ```
 
-### Build
+## Build
 
 - Build with npm: `npm run package`
   - Output will be in tinyclerk/release/build
   - By default, the script builds for your system
 
-### Starting Development
+## Starting Development
 
 Start the app in the `dev` environment: `npm start`
 
