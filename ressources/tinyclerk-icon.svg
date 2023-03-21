@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="256"
+   height="256"
+   viewBox="0 0 67.733332 67.733335"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
+   sodipodi:docname="tiny_clerk-icon.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     units="px"
+     inkscape:zoom="1.466344"
+     inkscape:cx="66.491901"
+     inkscape:cy="154.80679"
+     inkscape:window-width="1920"
+     inkscape:window-height="1129"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       d="M 14.012333,54.61 V 29.495752 h 4.444999 V 54.61 Z m 17.928169,0 V 29.495752 h 4.445 V 54.61 Z M 4.2333333,63.5 V 59.055 H 63.5 V 63.5 Z M 49.276001,54.61 V 29.495752 h 4.445 V 54.61 Z M 4.2333333,25.050751 V 21.124333 L 33.866667,4.2333333 63.5,21.124333 v 3.926418 z m 9.9271697,-4.445 h 39.412328 z m 0,0 H 53.572831 L 33.866667,9.3450806 Z"
+       id="path913"
+       style="stroke-width:0.0740835;fill:#808080;fill-opacity:1" />
+  </g>
+</svg>

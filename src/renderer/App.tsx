@@ -1,6 +1,16 @@
 import { MemoryRouter as Router, Routes, Route } from 'react-router-dom';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { CssBaseline } from '@mui/material';
+import blue from '@mui/material/colors/blue';
 import icon from '../../assets/icon.svg';
 import './App.css';
+
+const theme = createTheme({
+  palette: {
+    mode: "dark",
+    primary: blue
+  }
+})
 
 function Hello() {
   return (
