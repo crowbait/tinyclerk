@@ -33,6 +33,8 @@ npx patch-package
   - By default, the script builds for your system
   - If you're trying to build Linux on Windows, [see here](https://github.com/electron-userland/electron-build-service/issues/9#issuecomment-704069238)
 
+  * **Note**: since no macOS-device is available for testing or configuration, Mac-builds are not supported or tested and might or might not work.
+
 ## Starting Development
 
 Start the app in the `dev` environment: `npm start`
