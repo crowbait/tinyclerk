@@ -1,5 +1,6 @@
 {
   "description": "A simple, beautiful and practical tool for managing your personal budget",
+  "version": "0.0.1",
   "keywords": [
     "electron",
     "react",
