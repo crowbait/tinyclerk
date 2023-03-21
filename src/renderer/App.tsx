@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material';
-import blue from '@mui/material/colors/blue';
+import { blue } from '@mui/material/colors';
 import './App.css';
 import RootComponent from './RootComponent';
 

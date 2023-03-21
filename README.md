@@ -16,6 +16,7 @@
 
 Either
 - Get the latest [release](https://github.com/crowbait/crowbait-helper/releases)
+
 Or
 - Clone the repo and install dependencies:
 ```bash
@@ -30,6 +31,7 @@ npx patch-package
 - Build with npm: `npm run package`
   - Output will be in tinyclerk/release/build
   - By default, the script builds for your system
+  - If you're trying to build Linux on Windows, [see here](https://github.com/electron-userland/electron-build-service/issues/9#issuecomment-704069238)
 
 ## Starting Development
 
