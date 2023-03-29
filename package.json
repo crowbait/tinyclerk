@@ -42,19 +42,10 @@
     "release": "standard-version"
   },
   "browserslist": [],
-  "prettier": {
-    "singleQuote": true,
-    "overrides": [
-      {
-        "files": [
-          ".prettierrc",
-          ".eslintrc"
-        ],
-        "options": {
-          "parser": "json"
-        }
-      }
-    ]
+  "standard-version": {
+    "scripts": {
+      "posttag": "echo After push, manually trigger GitHub release workflow and copy release CHANGELOG.md"
+    }
   },
   "jest": {
     "moduleDirectories": [
