@@ -16,6 +16,9 @@ test 	    Adding some test cases
 - check latest github release version against current to show update notification
   - https://api.github.com/repos/crowbait/tinyclerk
   - https://gist.github.com/steinwaywhw/a4cd19cda655b8249d908261a62687f8
+- release generation: https://github.com/conventional-changelog/standard-version#cli-usage
+  - taken from https://mokkapps.de/blog/how-to-automatically-generate-a-helpful-changelog-from-your-git-commit-messages/#generate-changelog
 
 #### Settings to implement
+
 - start with drawer open / closed
