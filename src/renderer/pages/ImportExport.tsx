@@ -8,7 +8,7 @@ import { readStore, writeStore } from 'renderer/hooks/datastores';
 import moment from 'moment';
 import { ITransaction } from 'renderer/data.ts/transactions';
 import dexieDB from 'renderer/hooks/database';
-import ImportExportHelp from './ImportExportHelp';
+import ImportExportHelp from '../helpfiles/ImportExportHelp';
 
 const ImportExportComponent = () => {
   const [isProcessing, setIsProcessing] = React.useState(false);

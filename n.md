@@ -22,6 +22,7 @@ Commit Tags:
 #### Todo
 
 - add transaction manually
+  - use floating action button to display modal with form
 - group transactions by month (read from Dexie by group?)
 - statistics...
 - budgeting
