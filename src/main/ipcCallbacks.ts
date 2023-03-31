@@ -59,21 +59,6 @@ const ipcCallbacks = () => {
       event.reply('read-csv', 'error');
     }
   });
-
-/*
-  ipcMain.on('sqlite-query', async (event, args) => {
-    args = args[0];
-    console.log(`ipc: sqlite query: ${args.query}: ${args.params}`);
-
-    const database = new sqlite3.Database(dbPath, (err) => {
-      if(err) throw new Error(`Error connecting to local database: ${err.message}`);
-    });
-    const result = database.all(args.query, args.params);
-    database.close();
-
-    event.reply('read-store', result);
-  });
-*/
 }
 
 export default ipcCallbacks;

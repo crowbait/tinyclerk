@@ -17,12 +17,13 @@
 ## Install
 
 Either
-- Get the latest [release](https://github.com/crowbait/crowbait-helper/releases)
+- Get the latest [release](https://github.com/crowbait/tinyclerk/releases)
+  * **Note**: since no macOS-device is available for testing, Mac-builds are not supported or tested and might or might not work.
 
 Or
 - Clone the repo and install dependencies:
 ```bash
-git clone https://github.com/crowbait/crowbait-helper.git tinyclerk
+git clone https://github.com/crowbait/tinyclerk.git tinyclerk
 cd tinyclerk
 npm install
 npm run prepare
@@ -31,8 +32,8 @@ npx patch-package
 
 ## Build
 
-- Build with npm: `npm run package`
-  - Output will be in tinyclerk/release/build
+- `npm run package`
+  - Output will be in ./release/build
   - By default, the script builds for your system
   - If you're trying to build Linux on Windows, [see here](https://github.com/electron-userland/electron-build-service/issues/9#issuecomment-704069238)
 
