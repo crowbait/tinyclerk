@@ -10,7 +10,9 @@
 </div>
 
 # tinyClerk
-### A beautiful and simple cross-platform app for your personal accounting and budgeting
+#### A beautiful and simple cross-platform app for your personal accounting and budgeting
+
+
 
 ## Install
 

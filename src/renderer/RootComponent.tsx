@@ -6,7 +6,9 @@ import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import HomeIcon from '@mui/icons-material/Home';
+import ImportExportIcon from '@mui/icons-material/ImportExport';
 import HomeComponent from './pages/Home';
+import ImportExportComponent from './pages/ImportExport';
 
 import tinyClerkIcon from '../../assets/icon.svg'
 
@@ -14,6 +16,8 @@ const Main = (props: {view: string}) => {
   switch (props.view) {
     case "Home":
       return(<HomeComponent />);
+    case "Import / Export":
+      return(<ImportExportComponent />);
 
     default:
       return(<div>Undefined Item</div>);
@@ -85,14 +89,14 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-const MenuListItem = ({icon, onClick, open}: {icon: ReactNode, onClick: () => void, open: boolean}) => {
+const MenuListItem = ({icon, onClick, open, name}: {icon: ReactNode, onClick: () => void, open: boolean, name: string}) => {
   return (
     <ListItem disablePadding sx={{display: 'block'}}>
       <ListItemButton sx={{minHeight: 48, justifyContent: 'center', px: 2.5}} onClick={onClick}>
         <ListItemIcon sx={{minWidth: 0, marginRight: 'auto', justifyContent: 'center'}}>
           {icon}
         </ListItemIcon>
-        <ListItemText primary="Home" sx={{opacity: open ? 1 : 0}} style={{paddingLeft: "16px"}} />
+        <ListItemText primary={name} sx={{opacity: open ? 1 : 0}} style={{paddingLeft: "16px"}} />
       </ListItemButton>
     </ListItem>
   )
@@ -135,7 +139,8 @@ const RootComponent = () => {
         </DrawerHeader>
 
         <List>
-          <MenuListItem open={open} icon={<HomeIcon />} onClick={() => setCurrentPage("Home")} />
+          <MenuListItem open={open} icon={<HomeIcon />} name="Home" onClick={() => setCurrentPage("Home")} />
+          <MenuListItem open={open} icon={<ImportExportIcon />} name="Import / Export" onClick={() => setCurrentPage("Import / Export")} />
         </List>
       </Drawer>
 

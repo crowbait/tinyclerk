@@ -9,12 +9,13 @@
  * `./src/main.js` using webpack. This gives us some performance wins.
  */
 import path from 'path';
-import { app, BrowserWindow, shell, ipcMain, dialog } from 'electron';
+import { app, BrowserWindow, shell, dialog } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import Store from 'electron-store';
 import log from 'electron-log';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
+import ipcCallbacks from './ipcCallbacks';
 
 class AppUpdater {
   constructor() {
@@ -27,22 +28,11 @@ class AppUpdater {
 let mainWindow: BrowserWindow | null = null;
 let splash: BrowserWindow | null = null;
 
-ipcMain.on('ipc-example', async (event, arg) => {
-  const msgTemplate = (pingPong: string) => `IPC test: ${pingPong}`;
-  console.log(msgTemplate(arg));
-  event.reply('ipc-example', msgTemplate('pong'));
-});
-
-
-
 if (process.env.NODE_ENV === 'production') {
   const sourceMapSupport = require('source-map-support');
   sourceMapSupport.install();
 }
-
-const isDebug =
-  process.env.NODE_ENV === 'development' || process.env.DEBUG_PROD === 'true';
-
+const isDebug = process.env.NODE_ENV === 'development' || process.env.DEBUG_PROD === 'true';
 if (isDebug) {
   require('electron-debug')();
 }
@@ -96,6 +86,7 @@ const createWindow = async () => {
     },
   });
 
+
   mainWindow.loadURL(resolveHtmlPath('index.html'));
   Store.initRenderer();
 
@@ -148,6 +139,11 @@ app
   .whenReady()
   .then(() => {
     createSplash();
+
+    // space for load-time routines
+    ipcCallbacks();
+
+
     createWindow();
     app.on('activate', () => {
       // On macOS it's common to re-create a window in the app when the
@@ -159,4 +155,5 @@ app
 
 process.on('uncaughtException', (error) => {
   dialog.showErrorBox("EXCEPTION", error.message);
+  app.quit();
 });
